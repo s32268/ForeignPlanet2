@@ -34,7 +34,7 @@ public class PlayerControllerUpdate : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && groundChecker.isGrounded)
         {
             isJump = true;
-            anim.SetBool("Jump", true);
+            anim.SetBool("jump", true);
         }
         
         if (Input.GetKey(KeyCode.LeftControl))
@@ -69,20 +69,20 @@ public class PlayerControllerUpdate : MonoBehaviour
 
         if (rb.velocity.y > 0)
         {
-            anim.SetBool("Jump", true);
+            anim.SetBool("jump", true);
         }
 
 
         if (rb.velocity.y < 0)
         {
-            anim.SetBool("Fall", true);
-            anim.SetBool("Jump", false);
+            anim.SetBool("fall", true);
+            anim.SetBool("jump", false);
         }
 
         if (rb.velocity.y == 0)
         {
-            anim.SetBool("Jump", false);
-            anim.SetBool("Fall", false);
+            anim.SetBool("jump", false);
+            anim.SetBool("fall", false);
 
         }
 
