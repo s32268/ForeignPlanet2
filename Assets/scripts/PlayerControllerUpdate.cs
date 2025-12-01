@@ -34,23 +34,16 @@ public class PlayerControllerUpdate : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && groundChecker.isGrounded)
         {
             isJump = true;
-            anim.SetBool("jump", true);
+            anim.SetBool("Jump", true);
         }
         
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            anim.SetBool("Crouch", true);
-        }
-        else
-        {
-            anim.SetBool("Crouch", false);
-        }
+       
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
             isSprint = true;
             anim.SetBool("Run", true);
-            anim.SetBool("Walk", false);
+            anim.SetBool("Run", false);
         }
         else
         {
@@ -60,29 +53,29 @@ public class PlayerControllerUpdate : MonoBehaviour
 
         if (moveVector != 0)
         {
-            anim.SetBool("Walk", true);
+            anim.SetBool("Run", true);
         }
         else
         {
-            anim.SetBool("Walk", false);
+            anim.SetBool("Run", false);
         }
 
         if (rb.velocity.y > 0)
         {
-            anim.SetBool("jump", true);
+            anim.SetBool("Jump", true);
         }
 
 
         if (rb.velocity.y < 0)
         {
-            anim.SetBool("fall", true);
-            anim.SetBool("jump", false);
+            anim.SetBool("Fall", true);
+            anim.SetBool("Jump", false);
         }
 
         if (rb.velocity.y == 0)
         {
-            anim.SetBool("jump", false);
-            anim.SetBool("fall", false);
+            anim.SetBool("Jump", false);
+            anim.SetBool("Fall", false);
 
         }
 
