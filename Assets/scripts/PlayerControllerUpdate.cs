@@ -39,17 +39,7 @@ public class PlayerControllerUpdate : MonoBehaviour
         
        
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            isSprint = true;
-            anim.SetBool("Run", true);
-            anim.SetBool("Run", false);
-        }
-        else
-        {
-            isSprint = false;
-            anim.SetBool("Run", false);
-        }
+
 
         if (moveVector != 0)
         {
@@ -68,14 +58,14 @@ public class PlayerControllerUpdate : MonoBehaviour
 
         if (rb.velocity.y < 0)
         {
-            anim.SetBool("Fall", true);
+            anim.SetBool("JumpDown", true);
             anim.SetBool("Jump", false);
         }
 
         if (rb.velocity.y == 0)
         {
             anim.SetBool("Jump", false);
-            anim.SetBool("Fall", false);
+            anim.SetBool("JumpDown", false);
 
         }
 
