@@ -62,6 +62,16 @@ public class PlayerControllerUpdate : MonoBehaviour
             anim.SetBool("Jump", false);
         }
 
+        //dodaj warunek rb.velocity.y < 0 w logice 
+        // (czyli w kodzie ustawiasz parametr Fall = true kiedy prędkość Y < -threshold)
+
+        if (rb.velocity.y < 0)
+        {
+            anim.SetBool("JumpDown", true);
+            
+        }
+
+
         if (rb.velocity.y == 0)
         {
             anim.SetBool("Jump", false);
