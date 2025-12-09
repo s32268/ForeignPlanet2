@@ -37,9 +37,7 @@ public class PlayerControllerUpdate : MonoBehaviour
             anim.SetBool("Jump", true);
         }
         
-       
-
-
+      
 
         if (moveVector != 0)
         {
@@ -49,6 +47,16 @@ public class PlayerControllerUpdate : MonoBehaviour
         {
             anim.SetBool("Run", false);
         }
+
+
+        //land > idle/run
+        if (groundChecker == true)
+        {
+            anim.SetBool("Land", false);
+            anim.SetBool("Idle", true );
+
+        }
+
 
         if (rb.velocity.y > 0)
         {
@@ -62,13 +70,18 @@ public class PlayerControllerUpdate : MonoBehaviour
             anim.SetBool("Jump", false);
         }
 
-        //dodaj warunek rb.velocity.y < 0 w logice 
-        // (czyli w kodzie ustawiasz parametr Fall = true kiedy prędkość Y < -threshold)
-
+        
         if (rb.velocity.y < 0)
         {
             anim.SetBool("JumpDown", true);
             
+        }
+
+        if (groundChecker == true)
+        {
+            anim.SetBool("Jumpdown", false);
+            anim.SetBool("Land", true);
+
         }
 
 
