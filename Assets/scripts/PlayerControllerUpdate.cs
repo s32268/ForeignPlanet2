@@ -6,7 +6,7 @@ public class PlayerControllerUpdate : MonoBehaviour
 {
     public float moveSpeed = 200;
     public float runSpeed = 7;
-    public float jumpForce = 100;
+    public float jumpForce = 400;
     private bool isSprint = false;
     private bool isJump = false;
     //private bool isCrouch = false;
@@ -28,7 +28,7 @@ public class PlayerControllerUpdate : MonoBehaviour
 
     void Update()
     {
-        //moveInput = Input.GetAxis("Horizontal");
+
         moveVector = Input.GetAxis("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.Space) && groundChecker.isGrounded)
@@ -49,43 +49,39 @@ public class PlayerControllerUpdate : MonoBehaviour
         }
 
 
-        //land > idle/run
+      
         if (groundChecker == true)
         {
-            anim.SetBool("Land", false);
-            anim.SetBool("Idle", true );
+            anim.SetBool("Land", true);
+         
 
         }
 
 
-        if (rb.velocity.y > 0)
+        if (groundChecker == false)
         {
             anim.SetBool("Jump", true);
         }
 
 
-        if (rb.velocity.y < 0)
+        if (groundChecker == false)
         {
             anim.SetBool("JumpDown", true);
             anim.SetBool("Jump", false);
         }
 
         
-        if (rb.velocity.y < 0)
-        {
-            anim.SetBool("JumpDown", true);
-            
-        }
+      
 
         if (groundChecker == true)
         {
-            anim.SetBool("Jumpdown", false);
+            anim.SetBool("JumpDown", false);
             anim.SetBool("Land", true);
 
         }
 
 
-        if (rb.velocity.y == 0)
+        if (groundChecker == true)
         {
             anim.SetBool("Jump", false);
             anim.SetBool("JumpDown", false);
